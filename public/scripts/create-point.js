@@ -1,54 +1,52 @@
-function populateUFs() {
+function populateUfs() {            
     const ufSelect = document.querySelector("select[name=uf]")
-
+    
     fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
-    .then( res => res.json() )
-    .then(states => {
-
-        for( const state of states ) {
+    .then( res => res.json())
+    .then( states => {
+        for(  const state of states) {
             ufSelect.innerHTML += `<option value="${state.id}">${state.nome}</option>`
         }
-                     
-    })
-}
-
-populateUFs()
-
-function getCities(event) {
-    const citySelect = document.querySelector("[name=city]")
-    const inputState = document.querySelector("[name=state]")
-
-    const ufValue = event.target.value
-
-    const indexOfSelectedState = event.target.selectedIndex
-    inputState.value = event.target.options[indexOfSelectedState].text
-
-    const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`
-   
-    citySelect.innerHTML = "<option value>Selecione a Cidade</option> "
-    citySelect.disabled = true 
-   
-
-    fetch( url )
-    .then( res => res.json() )
-    .then( cities => {
-
-        for( const city of cities ) {
-            citySelect.innerHTML += `<option value="${city.nome}">${city.nome}</option>`
-        }
-
-        citySelect.disabled = false  
         
-                 
-    } )
-   
+    })  
+}
 
+populateUfs ()
+
+
+function getCities(event){
+    
+    const citySelect = document.querySelector("select[name=city]")
+     const stateInput = document.querySelector("input[name=state]")
+
+     const ufValue = event.target.value
+
+     const indexOfSelectedState = event.target.selectedIndex
+     stateInput.value = event.target.options[indexOfSelectedState].text
+
+     const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`
+
+     citySelect.innerHTML= ""
+     citySelect.disabled = true
+
+     fetch(url)
+     .then( res => res.json() )
+     .then( cities => {
+         for ( const city of cities ) {
+             citySelect.innerHTML += `<option value="${city.nome}">${city.nome}</option>`
+         }
+
+        citySelect.disabled = false
+     })
 }
 
 
 
-document.querySelector("select[name=uf]")
-document.addEventListener("change", getCities)
+
+document
+    .querySelector("select[name=uf]")
+    .addEventListener("change",getCities)
+
 
 // itens de coleta
 //pegar todos Li's
@@ -71,6 +69,8 @@ function handleSelectedItem(event) {
     itemLi.classList.toggle("selected")
 
     const itemId = itemLi.dataset.id
+
+    console.log("item id: " , itemId)
 
     
 
@@ -97,6 +97,8 @@ function handleSelectedItem(event) {
         //adicionar a seleção
         selectedItems.push(itemId)
     }
+
+    console.log('selectedItems: ' , selectedItems)
 
 
     
