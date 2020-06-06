@@ -27,6 +27,12 @@
     #page-search-results {
         text-align: center;
     }
+    #page-create-point .field-group {
+       flex-direction: column; 
+    }
+    #page-create-point .field-group .fieldd + .field {
+        margin-left: 0;
+    }
 }
 
 @media (min-width: 1700px) {
