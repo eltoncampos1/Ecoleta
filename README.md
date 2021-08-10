@@ -1,4 +1,4 @@
-# ECOLETA-NLW
+
 ## NEXT LEVEL WEEK - PROJECT-ECOLETA
 ### Projeto desenvolvido durante a semana NEXT LEVEL WEEK  da ROCKETSEAT
 
