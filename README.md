@@ -24,7 +24,6 @@ Um evento online e totalmente gratuito que vai te ajudar a dar o próximo passo
  </br>
  </br>
  </br>
- </br>
 
 ![logo](https://raw.githubusercontent.com/eltoncampos1/ECOLE-NLW/30b605219b584aa756a01003fcdb7041579fff02/public/icones/logo.svg)
 
